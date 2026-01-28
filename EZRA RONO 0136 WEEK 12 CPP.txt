@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+class Course {
+public:
+    string courseName;
+
+    Course(string name) {
+        courseName = name;
+    }
+};
+
+class Student {
+    string name;
+    Course* course;   // Association
+
+public:
+    Student(string n, Course* c) {
+        name = n;
+        course = c;
+    }
+
+    void registerCourse() {
+        cout << name << " registered for " << course->courseName << endl;
+    }
+};
+
+int main() {
+    Course c1("Computer Programming");
+    Student s1("Ezra", &c1);
+
+    s1.registerCourse();
+
+    return 0;
+}
